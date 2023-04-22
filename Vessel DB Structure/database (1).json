@@ -1,0 +1,184 @@
+{
+    "id": {
+        "basicInfo": {
+            "HIN": "BERX7049C808", //Hull Identification Number
+            "name": "EL CAZADOR", // Vessel Name
+            "make": "id", // Boat Make (Manufacturer). ID will point to our Manufacturer Database
+            "model": "id", //Boat Model. ID will point to Vessel Model in our Vessel Model Database
+            "modelYear": "2008", // Vessel Model Year
+            "length": "60.50", // Vessel Length in feet
+            "officialNumber": "1220450", //Official Number, either State Registration Number or USCG Certificate of Documentation Number, if vessel has both, COD Number should be official number.
+            "flag": "UNITED STATES", //country of registration
+            "type": "power", // options: sail, power, pwc
+            "location": {
+                "wet": { // if Vessel is in the water (not on a trailer)
+                    "dockType": 0, // 0: public (marina, etc), 1: dock attached to a home
+                    "address": {
+                        "address": "",
+                        "addressCity": "",
+                        "addressState": "",
+                        "addressZip": ""
+                    },
+                    "harbor": "id", 
+                    "marina": "id",
+                    "lat": "lat", //location of vessel
+                    "lon": "lon", //location of vessel
+                    "dock": "d", //dock of vessel
+                    "slip": "26" //slip number of vessel
+                },
+                "dry": { //if vessel is on a on land (on a trailer).
+                    "address": { //address where vessel is located
+                        "address": "",
+                        "addressCity": "",
+                        "addressState": "",
+                        "addressZip": ""
+                    },
+                    "trailered": 0 //0:no, 1:yes
+                }
+            }
+        },
+        "documentation": {
+            "0": {
+                "org": "USCG", // available: USCG, State
+                "dateIssued": "01/17/2020", // COD Issue date
+                "expDate": "12/31/2020", // COD Expiration Date
+                "imo": null // Internationa Maritime Organization Number
+            },
+            "mechanicalData": {
+                "engines": [
+                    {
+                        "type": "inboard", // inboard, outboard, stern_drive, jet_drive (Engine Type)
+                        "side": "port", // Port or Starboard
+                        "make": "id", // Engine Manufacturer, ID will point to our Marine Manufacturer Database
+                        "model": "id", //Engine Model, ID will point to our Marine Engine Model Database 
+                        "serialNo": null, //Engine Serial Number
+                        "buildYear": "2006", //Year the engine was built
+                        "hours": "162.2", //how many hours the engine has
+                        "serviceHistory": [
+                            {
+                                "title": "title of service",
+                                "date": "dateTime",
+                                "serviceProvider": "id",
+                                "description": "what was done",
+                                "hours": "hours on engine when service was done"
+                            }
+                        ]
+                    }
+                ],
+                "hull": {
+                    "hullConfig": "monohull", // monohull, twinhull, trihull, unspecified
+                    "hullMaterial": "FRP (Fiberglass)", // FRP (Fiberglass), Aluminum, Wood, Steel, Concrete, Other
+                    "hullShape": "box" //box, sail, ship, unspecified
+                }
+            }
+        },
+        "owner": {
+            "ownerType": {
+                "individual": 0, // 0: not owned by individual, 1: owned by single individual, 2: owned by multiple individuals
+                "government": 0,
+                "corporation": {
+                    "stateIncorp": "state",
+                    "citizenshipCEO": "country",
+                    "citizenChairmanBoard": "country",
+                    "directorsQuorum": 0,
+                    "alienDirectors": 0,
+                    "equity": {
+                        "less50": 0,
+                        "50ormore": {
+                            "checkbox": 0,
+                            "pct": 0
+                        },
+                        "75ormore": 0,
+                        "75ormore_aggregate": 0
+                    }
+                }
+            },
+            "LLC": {
+                "memberManaged": 0,
+                "orgState": "State",
+                "equity": {
+                    "less50": 0,
+                    "50ormore": {
+                        "checkbox": 0,
+                        "pct": 0
+                    },
+                    "75ormore": 0,
+                    "75ormore_aggregate": 0
+                },
+                "partnership": {
+                    "equity": {
+                        "less50": 0,
+                        "50ormore": {
+                            "checkbox": 0,
+                            "pct": 0
+                        },
+                        "75ormore": 0,
+                        "75ormore_aggregate": 0
+                    }
+                }
+            },
+            "trust": {
+                "equity": {
+                    "less50": 0,
+                    "50ormore": {
+                        "checkbox": 0,
+                        "pct": 0
+                    },
+                    "75ormore": 0,
+                    "75ormore_aggregate": 0
+                }
+            }
+        },
+    },
+    "renewalInfo": {
+        "ownerName": "",
+        "ownerEmail": "",
+        "POBox": "",
+        "poCity": "",
+        "poState": "",
+        "poZIP": "",
+        "ownerPhysicalAddress": "",
+        "ownerCity": "",
+        "ownerState": "",
+        "ownerZIP": ""
+    },
+    "incidentData": [
+        {
+            "IncidentTitle": "title",
+            "IncidentType": null,
+            "caseStatus": null,
+            "USCGZonePort": null,
+            "StartDate": null,
+            "InvolvedVessels": [
+                {
+                    "name": "FREE & EASY",
+                    "VesselID": "",
+                    "Role": ""
+                }
+            ],
+            "IncidentBrief": ""
+        }
+    ],
+    "recallData": [
+        {
+            "number": "123",
+            "mic": "123",
+            "modelName": "123",
+            "HIN": "number",
+            "problems": [
+                {
+                    "name": "Fuel System"
+                }
+            ],
+            "caseOpen": "date",
+            "caseClose": "date",
+            "modelYear": [
+                {
+                    "year": "2017"
+                }
+            ],
+            "unitsAffected": "123",
+            "severity": 1
+        }
+    ]
+}

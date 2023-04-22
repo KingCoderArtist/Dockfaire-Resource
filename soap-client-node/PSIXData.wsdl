@@ -1,0 +1,783 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://cgmix.uscg.mil" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://cgmix.uscg.mil" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This XML Web Service exposes data concerning US Coast Guard Port State Information.  The same data is available at http://cgmix.uscg.mil/psix (through an ASP.NET Interface).</wsdl:documentation>
+    <wsdl:types>
+        <s:schema elementFormDefault="qualified" targetNamespace="http://cgmix.uscg.mil">
+            <s:element name="getVesselSummary">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="VesselID" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="VesselName" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CallSign" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="VIN" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="HIN" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Flag" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Service" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="BuildYear" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselSummaryResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getVesselSummaryResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselDocuments">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="VesselID" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselDocumentsResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getVesselDocumentsResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getOperationControls">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="ActivityID" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getOperationControlsResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getOperationControlsResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselParticulars">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="VesselID" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselParticularsResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getVesselParticularsResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselDimensions">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="VesselID" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselDimensionsResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getVesselDimensionsResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselTonnage">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="VesselID" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselTonnageResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getVesselTonnageResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselCases">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="VesselID" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselCasesResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getVesselCasesResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselDeficiencies">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="ActivityNumber" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselDeficienciesResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getVesselDeficienciesResult">
+                            <s:complexType>
+                                <s:sequence>
+                                    <s:element ref="s:schema" />
+                                    <s:any />
+                                </s:sequence>
+                            </s:complexType>
+                        </s:element>
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselSummaryXMLString">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="VesselID" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="VesselName" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="CallSign" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="VIN" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="HIN" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Flag" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="Service" type="s:string" />
+                        <s:element minOccurs="0" maxOccurs="1" name="BuildYear" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselSummaryXMLStringResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getVesselSummaryXMLStringResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselDocumentsXMLString">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="VesselID" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselDocumentsXMLStringResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getVesselDocumentsXMLStringResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getOperationControlsXMLString">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="ActivityID" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getOperationControlsXMLStringResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getOperationControlsXMLStringResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselParticularsXMLString">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="VesselID" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselParticularsXMLStringResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getVesselParticularsXMLStringResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselDimensionsXMLString">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="VesselID" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselDimensionsXMLStringResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getVesselDimensionsXMLStringResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselTonnageXMLString">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="VesselID" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselTonnageXMLStringResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getVesselTonnageXMLStringResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselCasesXMLString">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="VesselID" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselCasesXMLStringResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getVesselCasesXMLStringResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselDeficienciesXMLString">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="1" maxOccurs="1" name="ActivityNumber" type="s:int" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+            <s:element name="getVesselDeficienciesXMLStringResponse">
+                <s:complexType>
+                    <s:sequence>
+                        <s:element minOccurs="0" maxOccurs="1" name="getVesselDeficienciesXMLStringResult" type="s:string" />
+                    </s:sequence>
+                </s:complexType>
+            </s:element>
+        </s:schema>
+    </wsdl:types>
+    <wsdl:message name="getVesselSummarySoapIn">
+        <wsdl:part name="parameters" element="tns:getVesselSummary" />
+    </wsdl:message>
+    <wsdl:message name="getVesselSummarySoapOut">
+        <wsdl:part name="parameters" element="tns:getVesselSummaryResponse" />
+    </wsdl:message>
+    <wsdl:message name="getVesselDocumentsSoapIn">
+        <wsdl:part name="parameters" element="tns:getVesselDocuments" />
+    </wsdl:message>
+    <wsdl:message name="getVesselDocumentsSoapOut">
+        <wsdl:part name="parameters" element="tns:getVesselDocumentsResponse" />
+    </wsdl:message>
+    <wsdl:message name="getOperationControlsSoapIn">
+        <wsdl:part name="parameters" element="tns:getOperationControls" />
+    </wsdl:message>
+    <wsdl:message name="getOperationControlsSoapOut">
+        <wsdl:part name="parameters" element="tns:getOperationControlsResponse" />
+    </wsdl:message>
+    <wsdl:message name="getVesselParticularsSoapIn">
+        <wsdl:part name="parameters" element="tns:getVesselParticulars" />
+    </wsdl:message>
+    <wsdl:message name="getVesselParticularsSoapOut">
+        <wsdl:part name="parameters" element="tns:getVesselParticularsResponse" />
+    </wsdl:message>
+    <wsdl:message name="getVesselDimensionsSoapIn">
+        <wsdl:part name="parameters" element="tns:getVesselDimensions" />
+    </wsdl:message>
+    <wsdl:message name="getVesselDimensionsSoapOut">
+        <wsdl:part name="parameters" element="tns:getVesselDimensionsResponse" />
+    </wsdl:message>
+    <wsdl:message name="getVesselTonnageSoapIn">
+        <wsdl:part name="parameters" element="tns:getVesselTonnage" />
+    </wsdl:message>
+    <wsdl:message name="getVesselTonnageSoapOut">
+        <wsdl:part name="parameters" element="tns:getVesselTonnageResponse" />
+    </wsdl:message>
+    <wsdl:message name="getVesselCasesSoapIn">
+        <wsdl:part name="parameters" element="tns:getVesselCases" />
+    </wsdl:message>
+    <wsdl:message name="getVesselCasesSoapOut">
+        <wsdl:part name="parameters" element="tns:getVesselCasesResponse" />
+    </wsdl:message>
+    <wsdl:message name="getVesselDeficienciesSoapIn">
+        <wsdl:part name="parameters" element="tns:getVesselDeficiencies" />
+    </wsdl:message>
+    <wsdl:message name="getVesselDeficienciesSoapOut">
+        <wsdl:part name="parameters" element="tns:getVesselDeficienciesResponse" />
+    </wsdl:message>
+    <wsdl:message name="getVesselSummaryXMLStringSoapIn">
+        <wsdl:part name="parameters" element="tns:getVesselSummaryXMLString" />
+    </wsdl:message>
+    <wsdl:message name="getVesselSummaryXMLStringSoapOut">
+        <wsdl:part name="parameters" element="tns:getVesselSummaryXMLStringResponse" />
+    </wsdl:message>
+    <wsdl:message name="getVesselDocumentsXMLStringSoapIn">
+        <wsdl:part name="parameters" element="tns:getVesselDocumentsXMLString" />
+    </wsdl:message>
+    <wsdl:message name="getVesselDocumentsXMLStringSoapOut">
+        <wsdl:part name="parameters" element="tns:getVesselDocumentsXMLStringResponse" />
+    </wsdl:message>
+    <wsdl:message name="getOperationControlsXMLStringSoapIn">
+        <wsdl:part name="parameters" element="tns:getOperationControlsXMLString" />
+    </wsdl:message>
+    <wsdl:message name="getOperationControlsXMLStringSoapOut">
+        <wsdl:part name="parameters" element="tns:getOperationControlsXMLStringResponse" />
+    </wsdl:message>
+    <wsdl:message name="getVesselParticularsXMLStringSoapIn">
+        <wsdl:part name="parameters" element="tns:getVesselParticularsXMLString" />
+    </wsdl:message>
+    <wsdl:message name="getVesselParticularsXMLStringSoapOut">
+        <wsdl:part name="parameters" element="tns:getVesselParticularsXMLStringResponse" />
+    </wsdl:message>
+    <wsdl:message name="getVesselDimensionsXMLStringSoapIn">
+        <wsdl:part name="parameters" element="tns:getVesselDimensionsXMLString" />
+    </wsdl:message>
+    <wsdl:message name="getVesselDimensionsXMLStringSoapOut">
+        <wsdl:part name="parameters" element="tns:getVesselDimensionsXMLStringResponse" />
+    </wsdl:message>
+    <wsdl:message name="getVesselTonnageXMLStringSoapIn">
+        <wsdl:part name="parameters" element="tns:getVesselTonnageXMLString" />
+    </wsdl:message>
+    <wsdl:message name="getVesselTonnageXMLStringSoapOut">
+        <wsdl:part name="parameters" element="tns:getVesselTonnageXMLStringResponse" />
+    </wsdl:message>
+    <wsdl:message name="getVesselCasesXMLStringSoapIn">
+        <wsdl:part name="parameters" element="tns:getVesselCasesXMLString" />
+    </wsdl:message>
+    <wsdl:message name="getVesselCasesXMLStringSoapOut">
+        <wsdl:part name="parameters" element="tns:getVesselCasesXMLStringResponse" />
+    </wsdl:message>
+    <wsdl:message name="getVesselDeficienciesXMLStringSoapIn">
+        <wsdl:part name="parameters" element="tns:getVesselDeficienciesXMLString" />
+    </wsdl:message>
+    <wsdl:message name="getVesselDeficienciesXMLStringSoapOut">
+        <wsdl:part name="parameters" element="tns:getVesselDeficienciesXMLStringResponse" />
+    </wsdl:message>
+    <wsdl:portType name="PSIXDataSoap">
+        <wsdl:operation name="getVesselSummary">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns:&lt;ul&gt;&lt;li&gt;VesselID(Integer): Vessel Identification Number&lt;li&gt;VesselName(String): Vessel Name&lt;li&gt;Identification(String): Primary Vessel Identification Number&lt;li&gt;HIN(String): Hull Identification Number&lt;li&gt;VesselCallSign(String): Vessel Call Sign&lt;li&gt;StatusLookupName(String): Vessel Status&lt;li&gt;OutOfServiceDate(DateTime): Out of Service Date - If Applicable&lt;li&gt;ServiceType(String): Vessel Service&lt;li&gt;CountryLookupName(String): Vessel Flag&lt;li&gt;ConstructionCompletedYear(Integer): Year Vessel Was Built&lt;/ul&gt;&lt;br/&gt;&lt;br/&gt;&lt;i&gt;The following strings may be used for Vessel Service type searches:&lt;/i&gt;&lt;br/&gt;- Commercial Fishing Vessel&lt;br/&gt;- Fish Processing Vessel&lt;br/&gt;- Freight Barge&lt;br/&gt;- Freight Ship&lt;br/&gt;- Industrial Vessel&lt;br/&gt;- Mobile Offshore Drilling Unit&lt;br/&gt;- Offshore Supply Vessel&lt;br/&gt;- Oil Recovery&lt;br/&gt;- Passenger (Inspected)&lt;br/&gt;- Passenger (Uninspected)&lt;br/&gt;- Passenger Barge  (Inspected)&lt;br/&gt;- Passenger Barge  (Uninspected)&lt;br/&gt;- Public Freight&lt;br/&gt;- Public Tankship/Barge&lt;br/&gt;- Public Vessel, Unclassified&lt;br/&gt;- Recreational&lt;br/&gt;- Research Vessel&lt;br/&gt;- School Ship&lt;br/&gt;- Tank Barge&lt;br/&gt;- Tank Ship&lt;br/&gt;- Towing Vessel&lt;br/&gt;- Unclassified&lt;br/&gt;- Unknown&lt;br/&gt;- ALL&lt;br/&gt;&lt;br/&gt;&lt;i&gt;This procedure also accepts wild cards for Vessel Service.  A search for 'Barge' will return all barges (i.e. Passenger Barge, Tank Barge, Freight Barge, etc.)&lt;/i&gt;</wsdl:documentation>
+            <wsdl:input message="tns:getVesselSummarySoapIn" />
+            <wsdl:output message="tns:getVesselSummarySoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getVesselDocuments">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns:&lt;ul&gt;&lt;li&gt;VesselID(Integer): Vessel Identification Number&lt;li&gt;TypeLookupName(String): Document Type&lt;li&gt;IssueDtTm(String): Issued Date&lt;li&gt;ExpiredDtTm(String): Expiration Date&lt;li&gt;OrganizationAbbr(String): Issuing Agency&lt;/ul&gt;</wsdl:documentation>
+            <wsdl:input message="tns:getVesselDocumentsSoapIn" />
+            <wsdl:output message="tns:getVesselDocumentsSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getOperationControls">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns:&lt;ul&gt;&lt;li&gt;ActivityID(Integer):  Activity Identification Number&lt;li&gt;ImposedDtTm(DateTime): Date Operational Control was Imposed&lt;li&gt;RemovedDtTm(DateTime): Date Operational Control was Removed&lt;li&gt;CategoryLookupName(String): Operational Control Category&lt;li&gt;ReasonLookupName(String): Reason for Imposing Operational Control&lt;li&gt;UnitName(String):  Imposing CG Unit&lt;li&gt;TypeLookupName(String): Type of Operation Control Imposed&lt;/ul&gt;</wsdl:documentation>
+            <wsdl:input message="tns:getOperationControlsSoapIn" />
+            <wsdl:output message="tns:getOperationControlsSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getVesselParticulars">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns:&lt;ul&gt;&lt;li&gt;VesselName(String): Vessel Name&lt;li&gt;VesselCallSign(String): Vessel Call Sign&lt;li&gt;CountryLookupName(String): Vessel Flag&lt;li&gt;ServiceType(String): Vessel Service Type&lt;li&gt;ServiceSubType(String): Vessel Service Sub Type&lt;li&gt;CargoAuthorizationDescription(String): Vessel Cargo Authority Description&lt;li&gt;ConstructionCompletedYear(String): Vessel Build Year&lt;li&gt;StatusLookupName(String): Vessel Service Status&lt;li&gt;OutOfServiceDate(DateTime): Out of Service Date - If Applicable&lt;li&gt;VIN(String): Vessel Identification Number&lt;li&gt;IdentificationTypeLookupName(String): Identification Type&lt;/ul&gt;</wsdl:documentation>
+            <wsdl:input message="tns:getVesselParticularsSoapIn" />
+            <wsdl:output message="tns:getVesselParticularsSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getVesselDimensions">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns:&lt;ul&gt;&lt;li&gt;VesselID(Integer): Vessel Identification Number&lt;li&gt;DimensionTypeLookupId(Integer): Dimension Type Id&lt;li&gt;DimensionTypeLookupName(String): Dimension Type&lt;li&gt;BreadthInFeet(Decimal): Breadth&lt;li&gt;DepthInFeet(Decimal): Depth&lt;li&gt;LengthInFeet(Decimal): Length&lt;/ul&gt;</wsdl:documentation>
+            <wsdl:input message="tns:getVesselDimensionsSoapIn" />
+            <wsdl:output message="tns:getVesselDimensionsSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getVesselTonnage">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns:&lt;ul&gt;&lt;li&gt;VesselID(Integer): Vessel Identification Number&lt;li&gt;MeasureOfWeight(Integer): Weight&lt;li&gt;UnitOfMeasureLookupName(String): Weight Type&lt;li&gt;TonnageTypeLookupName(String): Tonnage Type&lt;/ul&gt;</wsdl:documentation>
+            <wsdl:input message="tns:getVesselTonnageSoapIn" />
+            <wsdl:output message="tns:getVesselTonnageSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getVesselCases">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns:&lt;ul&gt;&lt;li&gt;ActivityID(Integer): Activity Identification Number&lt;li&gt;VesselId(Integer):  Vessel Identification Number&lt;li&gt;USCGZonePort(String): Port&lt;li&gt;StartDtTm(String): Incident Start Date&lt;li&gt;TypeLookupName(String): Activity Type Description&lt;li&gt;ProcessStatusTypeLookupName(String): Case Status&lt;li&gt;ProcessStatusSubTypeLookupName(String): Case Sub-Status&lt;/ul&gt;</wsdl:documentation>
+            <wsdl:input message="tns:getVesselCasesSoapIn" />
+            <wsdl:output message="tns:getVesselCasesSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getVesselDeficiencies">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns:&lt;ul&gt;&lt;li&gt;VesselID(Integer): Vessel Identification Number&lt;li&gt;ActivityNumber(Integer): Activity Identification Number &lt;li&gt;System(String): System&lt;li&gt;Description(String): Deficiency Description&lt;li&gt;FailureCauseLookupName(String): Cause of the Deficiency&lt;li&gt;IsResolved(Boolean): Resolved Indicator&lt;li&gt;ResolutionDtTm(DateTime):  Date the Deficiency Was Resolved&lt;li&gt;ResolutionDueDtTm(String): Date To Be Resolved By&lt;li&gt;ResolutionDescription(String): Description of the resolution&lt;li&gt;SystemLookupName(String): System Involved&lt;li&gt;SubSystemLookupName(String): Sub-System Involved&lt;/ul&gt;</wsdl:documentation>
+            <wsdl:input message="tns:getVesselDeficienciesSoapIn" />
+            <wsdl:output message="tns:getVesselDeficienciesSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getVesselSummaryXMLString">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns:&lt;ul&gt;&lt;li&gt;VesselID(Integer): Vessel Identification Number&lt;li&gt;VesselName(String): Vessel Name&lt;li&gt;Identification(String): Primary Vessel Identification Number&lt;li&gt;HIN(String): Hull Identification Number&lt;li&gt;VesselCallSign(String): Vessel Call Sign&lt;li&gt;StatusLookupName(String): Vessel Status&lt;li&gt;OutOfServiceDate(DateTime): Out of Service Date - If Applicable&lt;li&gt;ServiceType(String): Vessel Service&lt;li&gt;CountryLookupName(String): Vessel Flag&lt;li&gt;ConstructionCompletedYear(Integer): Year Vessel Was Built&lt;/ul&gt;&lt;br/&gt;&lt;br/&gt;&lt;i&gt;The following strings may be used for Vessel Service type searches:&lt;/i&gt;&lt;br/&gt;- Commercial Fishing Vessel&lt;br/&gt;- Fish Processing Vessel&lt;br/&gt;- Freight Barge&lt;br/&gt;- Freight Ship&lt;br/&gt;- Industrial Vessel&lt;br/&gt;- Mobile Offshore Drilling Unit&lt;br/&gt;- Offshore Supply Vessel&lt;br/&gt;- Oil Recovery&lt;br/&gt;- Passenger (Inspected)&lt;br/&gt;- Passenger (Uninspected)&lt;br/&gt;- Passenger Barge  (Inspected)&lt;br/&gt;- Passenger Barge  (Uninspected)&lt;br/&gt;- Public Freight&lt;br/&gt;- Public Tankship/Barge&lt;br/&gt;- Public Vessel, Unclassified&lt;br/&gt;- Recreational&lt;br/&gt;- Research Vessel&lt;br/&gt;- School Ship&lt;br/&gt;- Tank Barge&lt;br/&gt;- Tank Ship&lt;br/&gt;- Towing Vessel&lt;br/&gt;- Unclassified&lt;br/&gt;- Unknown&lt;br/&gt;- ALL&lt;br/&gt;&lt;br/&gt;&lt;i&gt;This procedure also accepts wild cards for Vessel Service.  A search for 'Barge' will return all barges (i.e. Passenger Barge, Tank Barge, Freight Barge, etc.)&lt;/i&gt;</wsdl:documentation>
+            <wsdl:input message="tns:getVesselSummaryXMLStringSoapIn" />
+            <wsdl:output message="tns:getVesselSummaryXMLStringSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getVesselDocumentsXMLString">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns:&lt;ul&gt;&lt;li&gt;VesselID(Integer): Vessel Identification Number&lt;li&gt;TypeLookupName(String): Document Type&lt;li&gt;IssueDtTm(String): Issued Date&lt;li&gt;ExpiredDtTm(String): Expiration Date&lt;li&gt;OrganizationAbbr(String): Issuing Agency&lt;/ul&gt;</wsdl:documentation>
+            <wsdl:input message="tns:getVesselDocumentsXMLStringSoapIn" />
+            <wsdl:output message="tns:getVesselDocumentsXMLStringSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getOperationControlsXMLString">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns:&lt;ul&gt;&lt;li&gt;ActivityID(Integer):  Activity Identification Number&lt;li&gt;ImposedDtTm(DateTime): Date Operational Control was Imposed&lt;li&gt;RemovedDtTm(DateTime): Date Operational Control was Removed&lt;li&gt;CategoryLookupName(String): Operational Control Category&lt;li&gt;ReasonLookupName(String): Reason for Imposing Operational Control&lt;li&gt;UnitName(String):  Imposing CG Unit&lt;li&gt;TypeLookupName(String): Type of Operation Control Imposed&lt;/ul&gt;</wsdl:documentation>
+            <wsdl:input message="tns:getOperationControlsXMLStringSoapIn" />
+            <wsdl:output message="tns:getOperationControlsXMLStringSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getVesselParticularsXMLString">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns:&lt;ul&gt;&lt;li&gt;VesselName(String): Vessel Name&lt;li&gt;VesselCallSign(String): Vessel Call Sign&lt;li&gt;CountryLookupName(String): Vessel Flag&lt;li&gt;ServiceType(String): Vessel Service Type&lt;li&gt;ServiceSubType(String): Vessel Service Sub Type&lt;li&gt;CargoAuthorizationDescription(String): Vessel Cargo Authority Description&lt;li&gt;ConstructionCompletedYear(String): Vessel Build Year&lt;li&gt;StatusLookupName(String): Vessel Service Status&lt;li&gt;OutOfServiceDate(DateTime): Out of Service Date - If Applicable&lt;li&gt;VIN(String): Vessel Identification Number&lt;li&gt;IdentificationTypeLookupName(String): Identification Type&lt;/ul&gt;</wsdl:documentation>
+            <wsdl:input message="tns:getVesselParticularsXMLStringSoapIn" />
+            <wsdl:output message="tns:getVesselParticularsXMLStringSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getVesselDimensionsXMLString">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns:&lt;ul&gt;&lt;li&gt;VesselID(Integer): Vessel Identification Number&lt;li&gt;DimensionTypeLookupId(Integer): Dimension Type Id&lt;li&gt;DimensionTypeLookupName(String): Dimension Type&lt;li&gt;BreadthInFeet(Decimal): Breadth&lt;li&gt;DepthInFeet(Decimal): Depth&lt;li&gt;LengthInFeet(Decimal): Length&lt;/ul&gt;</wsdl:documentation>
+            <wsdl:input message="tns:getVesselDimensionsXMLStringSoapIn" />
+            <wsdl:output message="tns:getVesselDimensionsXMLStringSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getVesselTonnageXMLString">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns:&lt;ul&gt;&lt;li&gt;VesselID(Integer): Vessel Identification Number&lt;li&gt;MeasureOfWeight(Integer): Weight&lt;li&gt;UnitOfMeasureLookupName(String): Weight Type&lt;li&gt;TonnageTypeLookupName(String): Tonnage Type&lt;/ul&gt;</wsdl:documentation>
+            <wsdl:input message="tns:getVesselTonnageXMLStringSoapIn" />
+            <wsdl:output message="tns:getVesselTonnageXMLStringSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getVesselCasesXMLString">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns:&lt;ul&gt;&lt;li&gt;ActivityID(Integer): Activity Identification Number&lt;li&gt;VesselId(Integer):  Vessel Identification Number&lt;li&gt;USCGZonePort(String): Port&lt;li&gt;StartDtTm(String): Incident Start Date&lt;li&gt;TypeLookupName(String): Activity Type Description&lt;li&gt;ProcessStatusTypeLookupName(String): Case Status&lt;li&gt;ProcessStatusSubTypeLookupName(String): Case Sub-Status&lt;/ul&gt;</wsdl:documentation>
+            <wsdl:input message="tns:getVesselCasesXMLStringSoapIn" />
+            <wsdl:output message="tns:getVesselCasesXMLStringSoapOut" />
+        </wsdl:operation>
+        <wsdl:operation name="getVesselDeficienciesXMLString">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns:&lt;ul&gt;&lt;li&gt;VesselID(Integer): Vessel Identification Number&lt;li&gt;ActivityNumber(Integer): Activity Identification Number &lt;li&gt;System(String): System&lt;li&gt;Description(String): Deficiency Description&lt;li&gt;FailureCauseLookupName(String): Cause of the Deficiency&lt;li&gt;IsResolved(Boolean): Resolved Indicator&lt;li&gt;ResolutionDtTm(DateTime):  Date the Deficiency Was Resolved&lt;li&gt;ResolutionDueDtTm(String): Date To Be Resolved By&lt;li&gt;ResolutionDescription(String): Description of the resolution&lt;li&gt;SystemLookupName(String): System Involved&lt;li&gt;SubSystemLookupName(String): Sub-System Involved&lt;/ul&gt;</wsdl:documentation>
+            <wsdl:input message="tns:getVesselDeficienciesXMLStringSoapIn" />
+            <wsdl:output message="tns:getVesselDeficienciesXMLStringSoapOut" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="PSIXDataSoap" type="tns:PSIXDataSoap">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="getVesselSummary">
+            <soap:operation soapAction="http://cgmix.uscg.mil/getVesselSummary" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselDocuments">
+            <soap:operation soapAction="http://cgmix.uscg.mil/getVesselDocuments" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getOperationControls">
+            <soap:operation soapAction="http://cgmix.uscg.mil/getOperationControls" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselParticulars">
+            <soap:operation soapAction="http://cgmix.uscg.mil/getVesselParticulars" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselDimensions">
+            <soap:operation soapAction="http://cgmix.uscg.mil/getVesselDimensions" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselTonnage">
+            <soap:operation soapAction="http://cgmix.uscg.mil/getVesselTonnage" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselCases">
+            <soap:operation soapAction="http://cgmix.uscg.mil/getVesselCases" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselDeficiencies">
+            <soap:operation soapAction="http://cgmix.uscg.mil/getVesselDeficiencies" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselSummaryXMLString">
+            <soap:operation soapAction="http://cgmix.uscg.mil/getVesselSummaryXMLString" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselDocumentsXMLString">
+            <soap:operation soapAction="http://cgmix.uscg.mil/getVesselDocumentsXMLString" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getOperationControlsXMLString">
+            <soap:operation soapAction="http://cgmix.uscg.mil/getOperationControlsXMLString" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselParticularsXMLString">
+            <soap:operation soapAction="http://cgmix.uscg.mil/getVesselParticularsXMLString" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselDimensionsXMLString">
+            <soap:operation soapAction="http://cgmix.uscg.mil/getVesselDimensionsXMLString" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselTonnageXMLString">
+            <soap:operation soapAction="http://cgmix.uscg.mil/getVesselTonnageXMLString" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselCasesXMLString">
+            <soap:operation soapAction="http://cgmix.uscg.mil/getVesselCasesXMLString" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselDeficienciesXMLString">
+            <soap:operation soapAction="http://cgmix.uscg.mil/getVesselDeficienciesXMLString" style="document" />
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="PSIXDataSoap12" type="tns:PSIXDataSoap">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="getVesselSummary">
+            <soap12:operation soapAction="http://cgmix.uscg.mil/getVesselSummary" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselDocuments">
+            <soap12:operation soapAction="http://cgmix.uscg.mil/getVesselDocuments" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getOperationControls">
+            <soap12:operation soapAction="http://cgmix.uscg.mil/getOperationControls" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselParticulars">
+            <soap12:operation soapAction="http://cgmix.uscg.mil/getVesselParticulars" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselDimensions">
+            <soap12:operation soapAction="http://cgmix.uscg.mil/getVesselDimensions" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselTonnage">
+            <soap12:operation soapAction="http://cgmix.uscg.mil/getVesselTonnage" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselCases">
+            <soap12:operation soapAction="http://cgmix.uscg.mil/getVesselCases" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselDeficiencies">
+            <soap12:operation soapAction="http://cgmix.uscg.mil/getVesselDeficiencies" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselSummaryXMLString">
+            <soap12:operation soapAction="http://cgmix.uscg.mil/getVesselSummaryXMLString" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselDocumentsXMLString">
+            <soap12:operation soapAction="http://cgmix.uscg.mil/getVesselDocumentsXMLString" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getOperationControlsXMLString">
+            <soap12:operation soapAction="http://cgmix.uscg.mil/getOperationControlsXMLString" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselParticularsXMLString">
+            <soap12:operation soapAction="http://cgmix.uscg.mil/getVesselParticularsXMLString" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselDimensionsXMLString">
+            <soap12:operation soapAction="http://cgmix.uscg.mil/getVesselDimensionsXMLString" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselTonnageXMLString">
+            <soap12:operation soapAction="http://cgmix.uscg.mil/getVesselTonnageXMLString" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselCasesXMLString">
+            <soap12:operation soapAction="http://cgmix.uscg.mil/getVesselCasesXMLString" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="getVesselDeficienciesXMLString">
+            <soap12:operation soapAction="http://cgmix.uscg.mil/getVesselDeficienciesXMLString" style="document" />
+            <wsdl:input>
+                <soap12:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="PSIXData">
+        <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This XML Web Service exposes data concerning US Coast Guard Port State Information.  The same data is available at http://cgmix.uscg.mil/psix (through an ASP.NET Interface).</wsdl:documentation>
+        <wsdl:port name="PSIXDataSoap" binding="tns:PSIXDataSoap">
+            <soap:address location="https://cgmix.uscg.mil/XML/PSIXData.asmx" />
+        </wsdl:port>
+        <wsdl:port name="PSIXDataSoap12" binding="tns:PSIXDataSoap12">
+            <soap12:address location="https://cgmix.uscg.mil/XML/PSIXData.asmx" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

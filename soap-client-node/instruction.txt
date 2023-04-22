@@ -1,0 +1,39 @@
+Steps  to start the application
+1)-  extract project zip at <location> (location e,g "C:\Node_demo_projects\")
+2)-  cd nodejs-soap "or" cd <location>/nodejs-soap
+3)-  run command "npm install"
+4)-  run command "npm install -g nodemon" (this is optional but a good package for AOT compilation)
+5)-  run command "nodemon server.js" or "node server.js"
+6)-  verify the application is started and running on port = 3000.
+
+Steps to make a Request from postman
+1)- Launch postman
+2)- Set Method type = postman
+3)- Set the endpoint url = localhost:3000/PSIXData/getVesselSummary
+4)- Add header -> "Content-Type" = "application/json"
+5)- Set Request Body as below 
+
+        {
+            "HIN":"BERX7049C808"
+        }
+
+6)- Click on Send button to make a call.
+
+7)- Expect response as below,
+
+    {
+        "VesselSummary": {
+            "$attributes": null,
+            "VesselId": "1008807",
+            "VesselName": "EL CAZADOR",
+            "VesselCallSign": "N/A",
+            "ServiceType": "Recreational",
+            "ConstructionCompletedYear": "2008",
+            "StatusLookupName": "Active",
+            "Identification": "1220450",
+            "HIN": "BERX7049C808",
+            "CountryLookupName": "UNITED STATES"
+        }
+    }
+
+8 - Boom ! All Done!
